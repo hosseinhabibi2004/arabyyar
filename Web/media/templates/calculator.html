@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/calculator.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | ماشین حساب</title>
+</head>
+
+<body>
+    <form id="form" method="get">
+        <input type="submit" style="opacity: 0;display: none;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png" ) }}" class="header_image">
+        <p class="header_text">ماشین حساب</p>
+    </div>
+
+    <div class="body_items" id="body_items_calculator">
+        <a class="back_page_div" href="{{ url_for("index") }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png" ) }}">
+        </a>
+
+        <p id="select_text_calculator" class="select_text">ماشین حساب</p>
+        <div class="data_content" id="data_content_calculator">
+            <input type="submit" style="opacity: 0;display: none;" form="form" id="form_submit">
+            <input type="text" id="data_content_label_background_calculator" class="data_content_label_background"
+                   name="mathString" value="{% if content.result.math %}{{ content.result.math }}{% endif %}" maxlength="45"
+                   pattern="([-+/*]*\d+(\.\d+)?)*"
+                   form="form">
+            <div id="data_content_label_underline_calculator" class="data_content_label_underline"></div>
+        </div>
+        <div id="result_button_calculator" class="result_button" onclick="sumbit_button()">
+            <div id="result_button_img_calculator" class="result_button_img">
+                <p id="result_button_text_calculator" class="result_button_text">محاسبه</p>
+            </div>
+        </div>
+
+        <div id="result_content">
+            <div class="result_content_label_background" id="result_content_label_background_number">
+                <p class="result_content_label_text" id="result_content_label_text_number_result">
+                    {% if content.result.math_eval %}
+                        {{ content.result.math_eval }}
+                    {% endif %}
+                </p>
+                <p class="result_content_label_text" id="result_content_label_text_number_content_1">: نتیجه</p>
+            </div>
+            <div class="result_content_label_background" id="result_content_label_background_calculate">
+                <p class="result_content_label_text" id="result_content_label_text_number_content_2">
+                    {{ content.result.arabic }}
+                    <br>
+                    {% if content.result.arabic_eval %}یُساوي{% endif %}
+                    <br>
+                    {{ content.result.arabic_eval }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sumbit_button() {
+            var form = document.getElementById('form_submit');
+            form.click();
+        }
+    </script>
+    <script src="{{ url_for("static", filename="js/calculator.js") }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>

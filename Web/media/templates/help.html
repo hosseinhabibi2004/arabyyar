@@ -1,0 +1,230 @@
+<html>
+<head>
+    <meta charset="UTF.8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/help.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | راهنما</title>
+</head>
+
+<body>
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png" ) }}" class="header_image">
+        <p class="header_text">راهنما</p>
+    </div>
+
+    <div class="body_items" id="body_items_help">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png" ) }}">
+        </a>
+        <br><br><br>
+        <div class="part" onclick="hide_show('verbs_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('verbs', w='فعل', f='2', p='8') | safe }}",>
+                <span class="part_header">افعال</span>
+            </a>
+            <div class="part_guide" id="verbs_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-1.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این کادر فعل مورد نظر را وارد نمایید.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ فعل وارد شده باید برای ضمیر « هو » در زمان « ماضی » باشد.<br><br>
+                        2. عین الفعل را وارد کنید.<br><br>
+                        3. ضمیر مورد نظر را انتخاب کنید.<br><br>
+                        4. برای نمایش نتیجه از  « نمایش » استفاده کنید.<br><br>
+                        5. در این کادر نتیجه نمایش داده می شود.<br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('chapters_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('chapters', base='خرج', chapter='7', pronoun='8') | safe }}",>
+                <span class="part_header">باب ها</span>
+            </a>
+            <div class="part_guide" id="chapters_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-2.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این کادر ریشه سه حرفی فعل را وارد کنید.<br><br>
+                        2. باب مورد نظر خود را انتخاب کنید.<br><br>
+                        3. ضمیر مورد نظر را انتخاب کنید.<br><br>
+                        4. پس از وارد کردن مقادیر جهت مشاهده نتیجه روی « نمایش » کلیک کنید.<br>
+                        <br>
+                        5. در این کادر نتیجه نمایش داده می شود.<br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('detect_chapters_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('detect_chapters_view', word='استخرج') | safe }}",>
+                <span class="part_header">تشخیص باب</span>
+            </a>
+            <div class="part_guide" id="detect_chapters_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-3.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این بخش فعل ثلاثی مزید مورد نظر را وارد کنید.<br><br>
+                        2. پس از وارد کردن مقدار مورد نظر جهت مشاهده نتیجه روی « نمایش » کلیک کنید.<br><br>
+                        3. در این کادر نتایج مرتبط به فعل مورد نظر شما نمایش داده می شود.<br>
+                        <br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('color_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('color') | safe }}">
+                <span class="part_header">رنگ ها</span>
+            </a>
+            <div class="part_guide" id="color_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-4.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. از این کادر رنگ مورد نظر را انتخاب کنید.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ با نگه داشتن نشانگر ماوس روی رنگ مورد نظر می توانید معادل فارسی آن را مشاهده کنید.<br>
+                        <br>
+                        2. با انتخاب رنگ ، در این کادر معادل عربی رنگ مورد نظر نمایش داده می شود.<br>
+                        <br>
+                        3. با زدن روی بلندگو صوت رنگ پخش می شود.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('calendar')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('calendar', y='1400', m='01', d='01') | safe }}">
+                <span class="part_header">تقویم</span>
+            </a>
+            <div class="part_guide" id="calendar">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-5.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. روز ، ماه و سال مورد نظر را بر اساس تاریخ هجری شمسی وارد کنید.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ حداکثر مقدار مجاز برای سال مقدار 1450 است.<br><br>
+                        2. پس از وارد کردن تاریخ مورد نظر جهت مشاهده نتیجه روی « نمایش » کلیک کنید.<br><br>
+                        3. برای نمایش تاریخ همین زمان می توانید از « امروز » استفاده کنید.<br><br>
+                        4. در این کادر تاریخ هجری قمری مربوطه نمایش داده می شود.<br>
+                        <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('clock_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('clock', mode='0', hrs='11', mns='30') | safe }}",>
+                <span class="part_header">ساعت</span>
+            </a>
+            <div class="part_guide" id="clock_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-6.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این کادر ساعت را وارد کنید.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ دقت کنید که حداکثر مقدار برای ساعت 12 می باشد و از شکل 12 ساعته پیروی می کند و برای مشخص کردن « بعد از ظهر » یا « قبل از ظهر » از مورد سوم استفاده کنید .<br>
+                        <br>
+                        2. در این کادر دقیقه را وارد کنید. <br>
+                        <br>
+                        3. در این کادر « قبل از ظهر » یا « بعد از ظهر » بودن را مشخص کنید.<br>
+                        <br>
+                        4. برای نمایش زمان در این لحظه می توانید از « همین الان » استفاده کنید.<br>
+                        <br>
+                        5. پس از وارد کردن مقادیر از « نمایش » برای نمایش عربی ساعت استفاده کنید.<br>
+                        <br>
+                        6. در این کادر نتیجه نمایش داده می شود.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('calculator_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('calculator', mathString='1+100') | safe }}",>
+                <span class="part_header">ماشین حساب</span>
+            </a>
+            <div class="part_guide" id="calculator_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-7.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این کادر عبارت ریاضی را وارد کنید.
+                        برای این کار از علامت های زیر استفاده کنید :<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ جمع : +<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ تفریق : -<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ ضرب : *<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ تقسیم : /<br>
+                        <br>
+                        2. با زدن روی « محاسبه » می توانید نتیجه را مشاهده کنید.<br>
+                        <br>
+                        3. در این کادر نتیجه ریاضی عبارت دیده می شود.<br>
+                        <br>
+                        4. در این بخش نتیجه عربی مشاهده می شود.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ عبارت اول معادل خود عبارت ریاضی و عبارت دوم معادل حاصل آن است.<br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="guide_underline"></div>
+        <div class="part" onclick="hide_show('number_guide')">
+            <div class="show_button">
+                <span class="button_text">...</span>
+            </div>
+            <a href="{{ url_for('nta', number='8289520109') | safe }}",>
+                <span class="part_header">اعداد</span>
+            </a>
+            <div class="part_guide" id="number_guide">
+                <img class="part_image" src="{{ url_for("static", filename="img/help/help-8.png") }}">
+                <div class="part_text">
+                    <p>
+                        1. در این بخش عدد را وارد کنید.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ حداقل مقدار برابر 1 است.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ حداکثر مقدار برابر 9999999999 است.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ اعداد اعشاری قابل قبول نیستند.<br>
+                        <br>
+                        2. برای نمایش عربی اعداد از « نمایش » استفاده کنید.<br>
+                        <br>
+                        3. در این کادر معادل عربی عدد مورد نظر نمایش داده می شود.<br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function hide_show(x) {
+            var x = document.getElementById(x);
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+</body>
+</html>

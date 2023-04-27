@@ -1,0 +1,159 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/color.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | رنگ ها</title>
+</head>
+
+<body>
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png" ) }}" class="header_image">
+        <p class="header_text">رنگ ها</p>
+    </div>
+
+    <div class="body_items" id="body_items_number">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png" ) }}">
+        </a>
+
+        <p id="select_text_color" class="select_text">انتخاب رنگ</p>
+        <div class="colors_div">
+            <div class="colors_items" onclick="checkitems(this)" title="صورتی" id="colors_pink"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="بنفش" id="colors_purple"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="قرمز" id="colors_red"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="آسمانی" id="colors_cyan"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="آبی" id="colors_blue"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="سبز" id="colors_green"></div>
+            <br>
+            <div class="colors_items" onclick="checkitems(this)" title="نارنجی" id="colors_orange"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="زرد" id="colors_yellow"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="سفید" id="colors_white"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="نقره ای" id="colors_silver"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="طلایی" id="colors_golden"></div>
+            <div class="colors_items" onclick="checkitems(this)" title="سیاه" id="colors_black"></div>
+        </div>
+
+        <div id="result_content">
+            <div class="result_content_label_background" id="result_content_label_background_color">
+                <p id="result_content_label_text_color" class="result_content_label_text"></p>
+            </div>
+            <div id="result_content_icon_background" onclick="soundplayer()">
+                <img id="result_content_icon" src="{{ url_for("static", filename="img/volume_icon.png" ) }}">
+            </div>
+        </div>
+    </div>
+
+    {% block javascript %}
+        <script>
+            var checkitem;
+            var elementParent;
+            var itemId;
+
+            function checkitems(element) {
+                if (elementParent != null) {
+                    elementParent.removeChild(checkitem);
+                }
+                elementParent = element;
+                checkitem = document.createElement("img");
+                checkitem.src = "{{ url_for("static", filename="img/check_icon.png") }}";
+                checkitem.className += 'colors_items_checked';
+                element.appendChild(checkitem);
+                itemId = element.id;
+                showdata();
+            }
+
+            var sounds;
+
+            function soundplayer() {
+                switch (itemId) {
+                    case 'colors_pink':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/pink.mp3") }}");
+                        break;
+                    case 'colors_purple':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/purple.mp3") }}");
+                        break;
+                    case 'colors_red':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/red.mp3") }}");
+                        break;
+                    case 'colors_cyan':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/cyan.mp3") }}");
+                        break;
+                    case 'colors_blue':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/blue.mp3") }}");
+                        break;
+                    case 'colors_green':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/green.mp3") }}");
+                        break;
+                    case 'colors_orange':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/orange.mp3") }}");
+                        break;
+                    case 'colors_yellow':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/yellow.mp3") }}");
+                        break;
+                    case 'colors_white':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/white.mp3") }}");
+                        break;
+                    case 'colors_silver':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/silver.mp3") }}");
+                        break;
+                    case 'colors_golden':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/golden.mp3") }}");
+                        break;
+                    case 'colors_black':
+                        sounds = new Audio("{{ url_for("static", filename="mp3/black.mp3") }}");
+                        break;
+                }
+                sounds.play();
+            }
+
+            function showdata() {
+                var showdatatext = document.getElementById('result_content_label_text_color');
+                switch (itemId) {
+                    case 'colors_pink':
+                        showdatatext.innerHTML = 'وَرْدِيّ';
+                        break;
+                    case 'colors_purple':
+                        showdatatext.innerHTML = 'بَنَفْسَجيّ';
+                        break;
+                    case 'colors_red':
+                        showdatatext.innerHTML = 'أَحْمَر';
+                        break;
+                    case 'colors_cyan':
+                        showdatatext.innerHTML = 'سَماوِيّ';
+                        break;
+                    case 'colors_blue':
+                        showdatatext.innerHTML = 'أَزْرَق';
+                        break;
+                    case 'colors_green':
+                        showdatatext.innerHTML = 'أَخْضَر';
+                        break;
+                    case 'colors_orange':
+                        showdatatext.innerHTML = 'بُرْتُقاليّ';
+                        break;
+                    case 'colors_yellow':
+                        showdatatext.innerHTML = 'أَصْفَر';
+                        break;
+                    case 'colors_white':
+                        showdatatext.innerHTML = 'أَبْيَض';
+                        break;
+                    case 'colors_silver':
+                        showdatatext.innerHTML = 'فِضّي';
+                        break;
+                    case 'colors_golden':
+                        showdatatext.innerHTML = 'ذَهَبيّ';
+                        break;
+                    case 'colors_black':
+                        showdatatext.innerHTML = 'أَسْوَد';
+                        break;
+                }
+            }
+        </script>
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+</body>
+</html>

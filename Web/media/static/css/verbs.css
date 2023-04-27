@@ -1,0 +1,235 @@
+body {
+    height: 52vw !important;
+}
+
+.header_image {
+    margin-top: -4vw !important;
+}
+
+#body_items_verb {
+    margin-left: 4vw;
+    width: 59vw;
+    height: fit-content;
+    padding-top: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+#result_button_verb {
+    top: 11.2vw;
+    left: 3vw;
+}
+
+.result_content_label_title {
+    text-align: center !important;
+    margin: .5vw !important;
+    width: auto !important;
+}
+
+.supdivs {
+    width: 23.25vw !important;
+    margin-right: 1vw;
+    display: inline-block !important;
+}
+
+#select_text_verb {
+    margin-left: 26vw !important;
+    margin-bottom: .8vw !important;
+}
+
+#select_text_verb_pronoun {
+    margin-left: 23.5vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#select_text_character_verb {
+    margin-left: 32.5vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#result_content_label_background_content {
+    height: fit-content;
+}
+
+.result_content_label_text {
+    width: auto !important;
+    height: fit-content !important;
+    padding-top: 1vw;
+    margin-right: 1vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    margin-top: -0.5vw;
+    user-select: text !important;
+    padding-left: 2vw;
+}
+
+#data_content_verb {
+    width: auto;
+    height: 4vw;
+}
+
+#data_content_label_background_verb {
+    width: 13vw;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_character {
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_underline_verb {
+    width: 10vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 44.5vw;
+}
+
+#data_content_label_background_type_verb {
+    width: 13vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.7vw;
+    appearance: none;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -4vw;
+}
+
+#select_background_verb {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.8vw;
+    /* position: absolute; */
+}
+
+#select_background_character {
+    width: 7vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.2vw;
+    /* position: absolute; */
+}
+
+#data_content_label_background_type_character {
+    width: 11vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.2vw;
+    appearance: none;
+    position: absolute;
+    margin-top: -4vw;
+    background-color: transparent;
+}
+
+#img_select_arrow {
+    width: 1.1vw;
+    position: absolute;
+    margin-left: 1.5vw;
+    height: 1vw;
+    margin-top: 1.6vw;
+}
+
+#data_content_label_type_verb {
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#data_content_label_type_character {
+    margin-right: .6vw;
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#result_content {
+    margin-top: 6.5vw;
+    margin: 6.5vw 2vw 2.75vw 2vw !important;
+    direction: rtl;
+}
+
+/* Style the tab */
+
+.tab {
+    width: 54vw;
+    margin-right: 1vw;
+    background-color: var(--background);
+}
+
+/* Style the buttons that are used to open the tab content */
+
+.tab button {
+    background-color: inherit;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content !important;
+    background: var(--baseBorderColor);
+    color: var(--secondaryColor);
+    padding: .5vw 2.225vw;
+    margin-top: -3vw !important;
+    border-radius: 1vw 1vw 0 0 !important;
+    font-family: 'Vazir';
+    font-size: 1.3vw;
+    text-align: right;
+    opacity: 0.75;
+}
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    /* background-color: #ddd; */
+    opacity: 1;
+}
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+    background-color: var(--resultButtons);
+    color: var(--secondaryLayout);
+    opacity: 1;
+}
+
+/* Style the tab content */
+
+.tabcontent {
+    padding: 1vw 1.375vw;
+    animation: fadeEffect 1s;
+    width: 50vw;
+    height: fit-content;
+    border-radius: 0 0 1vw 1vw;
+    border: 0.22vw solid var(--baseBorderColor);
+    margin: 0vw 1vw 1vw 0.8vw;
+    background-color: var(--firstLayout);
+    display: inline-block;
+}
+
+/* Go from zero to full opacity */
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

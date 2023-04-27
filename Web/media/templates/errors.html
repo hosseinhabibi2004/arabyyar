@@ -1,0 +1,27 @@
+{% block content %}
+    <!-- Alertify -->
+    <link rel="stylesheet" href={{ url_for("static", filename = "css/alertify/alertify.min.css") }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename = "css/alertify/themes/default.min.css") }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename = "css/alertify/themes/semantic.min.css") }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename = "css/alertify/themes/bootstrap.min.css") }}/>
+    <script src="{{ url_for("static", filename="js/alertify/alertify.min.js") }}"></script>
+    <script>
+        {% if content.status == False %}
+            {% if content.result.error == 101 %}
+                alertify.error('.عبارت وارد شده نامعتبر است');
+            {% elif content.result.error == 102 %}
+                alertify.error('اطلاعات مورد نظر یافت نشد');
+            {% elif content.result.error == 111 %}
+                alertify.error('عبارت وارد شده منفی است');
+            {% elif content.result.error == 112 %}
+                alertify.error('ساعت وارد شده نامعتبر است');
+            {% elif content.result.error == 113 %}
+                alertify.error('دقیقه وارد شده نامعتبر است');
+            {% elif content.result.error == 201 %}
+                alertify.error('فرم ارسالی حاوی اطلاعات معتبری نیست');
+            {% else %}
+                alertify.error('خطای نامشخص');
+            {% endif %}
+        {% endif %}
+    </script>
+{% endblock %}

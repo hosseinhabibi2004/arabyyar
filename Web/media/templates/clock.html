@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/clock.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | ساعت</title>
+</head>
+
+<body>
+    <form id="form" method="get">
+        <input type="submit" style="opacity: 0;display: none;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png") }}" class="header_image">
+        <p class="header_text">ساعت</p>
+    </div>
+
+    <div class="body_items" id="body_items_clock">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png") }}">
+        </a>
+
+        <p id="select_text_clock" class="select_text">ساعت</p>
+        <div class="data_content" id="data_content_clock">
+            <input type="submit" style="opacity: 0;display: none;" form="form" id="form_submit">
+            <div id="data_content_label_type_clock">
+                <div class="data_content_label_background" id="select_background_clock">
+                    <img src="{{ url_for("static", filename="img/select_icon.png") }}" id="img_select_arrow">
+                </div>
+                <select class="data_content_label_background" id="data_content_label_background_type_clock" form="form" name="mode">
+                    <option value="1" id="AM" {% if content.result.mode == True %}selected="selected"{% endif %}>
+                        قبل از ظهر
+                    </option>
+                    <option value="0" id="PM" {% if content.result.mode == False %}selected="selected"{% endif %}>
+                        بعد از ظهر
+                    </option>
+                </select>
+            </div>
+            <div id="data_content_field1">
+                <input value="{% if content.result.minute %}{{ content.result.minute }}{% endif %}" type="text" id="data_content_label_background_minutes" class="data_content_label_background" placeholder="دقیقه" name="mns" pattern="^(([0-9])|([0-5][0-9]))$" maxlength="2" form="form">
+                <div id="data_content_label_underline_clock" class="data_content_label_underline"></div>
+            </div>
+            <p id="double_dot">:</p>
+            <div id="data_content_field2">
+                <input value="{% if content.result.hour %}{{ content.result.hour }}{% endif %}" type="text" id="data_content_label_background_clock" class="data_content_label_background" placeholder="ساعت" name="hrs" pattern="^(([1-9])|([0][1-9])|([1][0-2]))$" maxlength="2" form="form">
+                <div id="data_content_label_underline_clock" class="data_content_label_underline"></div>
+            </div>
+        </div>
+        <div id="result_button_clock" class="result_button" onclick="sumbit_button()">
+            <div id="result_button_img_clock" class="result_button_img">
+                <p id="result_button_text_clock" class="result_button_text">نمایش</p>
+            </div>
+        </div>
+        <div id="result_button_clock_now" class="result_button" onclick="get_now()">
+            <div id="result_button_img_clock" class="result_button_img">
+                <p id="result_button_text_clock" class="result_button_text">همین الان</p>
+            </div>
+        </div>
+
+        <div id="result_content">
+            <div id="result_content_field1" class="result_content_fields">
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_text" id="result_content_label_text_number_content">
+                        {% if content.result.arabic_clock %}
+                            {{ content.result.arabic_clock }}
+                        {% else %}
+                            <br>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sumbit_button() {
+            var form = document.getElementById('form_submit');
+            form.click();
+        }
+        function get_now() {
+            var now = new Date();
+            var now_hrs = now.getHours();
+            var now_mns = now.getMinutes();
+            if (now_hrs == 0) {
+                now_hrs = 12
+                document.getElementById('AM').selected = "selected";
+            } else if (now_hrs == 12) {
+                document.getElementById('PM').selected = "selected";
+            } else if (13 <= now_hrs && now_hrs <= 23) {
+                now_hrs = now_hrs - 12;
+                document.getElementById('PM').selected = "selected";
+            } else {
+                document.getElementById('AM').selected = "selected";
+            };
+            var hrs = document.getElementById('data_content_label_background_clock').value = now_hrs;
+            var mns = document.getElementById('data_content_label_background_minutes').value = now_mns;
+            sumbit_button()
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>

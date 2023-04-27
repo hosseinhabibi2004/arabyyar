@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/detect-chapters.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | تشخیص باب</title>
+</head>
+
+<body>
+    <form id="form" method="get">
+        <input type="submit" style="opacity: 0;display: none;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png") }}" class="header_image">
+        <p class="header_text">تشخیص باب</p>
+    </div>
+
+    <div class="body_items" id="body_items_chapter">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png") }}">
+        </a>
+        <p id="select_text_verb" class="select_text">فعل</p>
+        <div class="data_content" id="data_content_chapter">
+            <input type="submit" style="opacity: 0;display: none;" form="form" id="form_submit">
+            <input pattern="^([پچجحخهعغآآفقثصضشسیبلاتنمکگوئدذرزطظيةؤإأءًٌٍَُِّضصثقفغعهخحجدطكمنتالبيسشئءؤرلىةوزظلآآلأإٍِأْ]+)$" value="{% if content.result.word %}{{ content.result.word }}{% endif %}" type="text" id="data_content_label_background_chapter" class="data_content_label_background" name="word" form="form">
+            <div id="data_content_label_underline_chapter" class="data_content_label_underline"></div>
+        </div>
+        <div id="result_button_chapter" class="result_button" onclick="sumbit_button()">
+            <div id="result_button_img_chapter" class="result_button_img">
+                <p id="result_button_text_chapter" class="result_button_text">نمایش</p>
+            </div>
+        </div>
+		{% set vars = {'isFirstOne': True} %}
+		{% for pair in content.result.pairs %}
+		<div>
+			<div id="result_content" >
+				<div id="result_content_field1" class="result_content_fields_pronoun">
+					{% if vars.isFirstOne == 1 %} 
+						<p class="result_content_label_title">ضمیر</p>
+					{% endif %}
+					<div class="result_content_label_background" id="result_content_label_background_pronoun">
+						<p class="result_content_label_text" id="result_content_label_text_number_content">
+							{% if pair.pronoun %}
+								{{ pair.pronoun }}
+							{% else %}
+								<br>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+				<div id="result_content_field2" class="result_content_fields">
+					{% if vars.isFirstOne == 1 %} 
+						<p class="result_content_label_title">فعل</p>
+					{% endif %}
+					<div class="result_content_label_background" id="result_content_label_background_content">
+						<p class="result_content_label_text" id="result_content_label_text_number_content1">
+							{% if pair.verb %}
+								{{ pair.verb }}
+							{% else %}
+								<br>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+				<div id="result_content_field3" class="result_content_fields_tense">
+					{% if vars.isFirstOne == 1 %} 
+						<p class="result_content_label_title">زمان</p>
+					{% endif %}
+					<div class="result_content_label_background" id="result_content_label_background_tense">
+						<p class="result_content_label_text" id="result_content_label_text_number_content1">
+							{% if pair.tense %}
+								{{ pair.tense }}
+							{% else %}
+								<br>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+				<div id="result_content_field4" class="result_content_fields">
+					{% if vars.isFirstOne == 1 %} 
+						<p class="result_content_label_title">باب</p>
+					{% endif %}
+					<div class="result_content_label_background" id="result_content_label_background_content">
+						<p class="result_content_label_text" id="result_content_label_text_number_content2">
+							{% if pair.onchapter %}
+								{{ pair.onchapter }}
+							{% else %}
+								<br>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+			</div>
+			{% if vars.update({'isFirstOne': False}) %} {% endif %}
+		{% endfor %}
+    </div>
+
+    <script>
+        function sumbit_button() {
+            var form = document.getElementById('form_submit');
+            form.click();
+        }
+        function chapterSelect() {
+            var typechapter = document.getElementById('data_content_label_background_type_chapter');
+            var event = new MouseEvent('mousedown');
+            typechapter.dispatchEvent(event);
+        }
+        function characterSelect() {
+            var typecharacter = document.getElementById('data_content_label_background_type_character');
+            typecharacter.click();
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>

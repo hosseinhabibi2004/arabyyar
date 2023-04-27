@@ -1,0 +1,73 @@
+body {
+    height: 52vw !important;
+}
+
+.header_image {
+    margin-top: -5.75vw !important;
+}
+
+#body_items_number {
+    width: 66vw;
+    height: fit-content;
+    padding-top: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#colors_black {
+    background-color: black;
+    margin-right: -5vw !important;
+}
+
+#result_button_number {
+    top: 12.45vw;
+    left: 4vw;
+}
+
+#result_content {
+    margin-top: 2.2vw;
+    margin-bottom: 4vw;
+}
+
+#result_content_label_background_content {
+    width: 59vw;
+    height: fit-content;
+}
+
+#result_content_label_content_text {
+    width: 55vw !important;
+    height: fit-content !important;
+    padding-top: 1vw;
+    margin-right: 1vw;
+    padding-bottom: 1vw;
+    margin-top: 3.5vw;
+    user-select: text !important;
+    padding-left: 2vw;
+}
+
+#data_content_ {
+    margin-top: 5vw;
+    width: 44vw;
+    height: 4vw;
+    top: 6vw;
+    left: 23vw;
+}
+
+#data_content_label_background {
+    width: 46vw;
+    left: -7vw;
+    height: 4vw;
+}
+
+#data_content_label_background:focus {
+    outline: none;
+}
+
+#data_content_label_underline_number {
+    width: 42vw;
+    height: .15vw;
+    margin-left: 19vw;
+}

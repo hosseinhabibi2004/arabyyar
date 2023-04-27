@@ -1,0 +1,5 @@
+Flask==2.3.1
+Jinja2==3.1.2
+libqutrub==1.2.4.1
+PyArabic==0.6.15
+ummalqura==2.0.1

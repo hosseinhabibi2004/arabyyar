@@ -1,0 +1,214 @@
+body {
+    height: 62vw !important;
+}
+
+.header_image {
+    margin-top: -4vw !important;
+}
+
+#body_items_chapter {
+    width: 66vw;
+    height: fit-content;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+#select_text_verb {
+    margin-left: 26vw !important;
+    margin-bottom: .8vw !important;
+}
+
+#select_text_chapter {
+    margin-left: 45vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#select_text_pronoun {
+    margin-left: 29vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#result_button_chapter {
+    top: 11.3vw;
+    left: 5vw;
+    width: 12vw !important;
+}
+
+.result_content_label_title {
+    width: 19vw;
+    margin-top: -1.5vw;
+    font-family: 'Vazir';
+    font-size: 1.3vw;
+    color: #686868;
+    text-align: right;
+    font-weight: 600;
+    margin-right: 0.8vw;
+}
+
+#result_content {
+    margin-top: 2.2vw;
+    padding-bottom: 0.5vw;
+}
+
+#result_button_img_chapter {
+    width: 13vw;
+}
+
+.result_content_label_text {
+    width: auto !important;
+    height: fit-content!important;
+    padding-top: 1vw;
+    margin-right: 1vw;
+    padding-bottom: 1vw;
+    margin-top: -0.5vw;
+    user-select: text !important;
+    padding-left: 2vw;
+    text-align: center;
+}
+
+#result_content_label_background_chapter {
+    width: 59vw;
+    height: fit-content;
+}
+
+#data_content_chapter {
+    width: auto;
+    height: 4vw;
+}
+
+#data_content_label_background_chapter {
+    width: 43vw;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_character {
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_underline_chapter {
+    text-align: right;
+    float: right;
+    width: 40vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 21.7vw;
+}
+
+#data_content_label_background_type_chapter {
+    width: 12vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    appearance: none;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -4vw;
+}
+
+#select_background_chapter {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    /* position: absolute; */
+}
+
+#select_background_character {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    /* position: absolute; */
+}
+
+#data_content_label_background_type_character {
+    width: 13vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    appearance: none;
+    position: absolute;
+    margin-top: -4vw;
+    background-color: transparent;
+}
+
+#img_select_arrow {
+    width: 1.1vw;
+    position: absolute;
+    margin-left: 1.5vw;
+    height: 1vw;
+    margin-top: 1.6vw;
+}
+
+#data_content_label_type_chapter {
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#data_content_label_type_character {
+    margin-right: .6vw;
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#result_content {
+    padding-right: 3vw;
+    direction: rtl;
+}
+
+.result_content_fields {
+    width: 13vw;
+    float: right;
+    margin-top: 1vw;
+}
+
+#result_content_label_background_content {
+    width: 13vw;
+    height: fit-content;
+}
+
+.result_content_fields_pronoun {
+    width: 8vw;
+    float: right;
+    margin-top: 1vw;
+}
+
+#result_content_label_background_pronoun {
+    width: 8vw;
+    height: fit-content;
+}
+
+.result_content_fields_tense {
+    width: 18vw;
+    float: right;
+    margin-top: 1vw;
+}
+
+#result_content_label_background_tense {
+    width: 18vw;
+    height: fit-content;
+}
+
+#result_content_field2, #result_content_field3, #result_content_field4 {
+    margin-right: 2vw;
+}

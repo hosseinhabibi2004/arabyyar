@@ -1,0 +1,155 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/calendar.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | تقویم</title>
+</head>
+
+<body>
+   
+     <form id="form" method="get">
+        <input type="submit" style="opacity: 0;display: none;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src={{ url_for("static", filename="img/header.png") }} class="header_image">
+        <p class="header_text">تقویم</p>
+    </div>
+
+    <div class="body_items" id="body_items_calendar">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src={{ url_for("static", filename="img/back_icon.png") }}>
+        </a>
+        <p id="select_text_calendar" class="select_text">تاریخ</p>
+        <div class="data_content" id="data_content_calendar">
+            <input type="submit" style="opacity: 0;display: none;" form="form" id="form_submit">
+            <input value="{% if content.result.jalali_day %}{{ content.result.jalali_day }}{% endif %}" value="day" type="text" id="data_content_label_background_calendar_day" class="data_content_label_background" name="d" maxlength="2"  form="form" pattern="^([1-9]|0[1-9]|[12]\d|3[01])$" min="1" max="31" placeholder="روز">
+            <p class="datefield_space"> / </p>
+            <input value="{% if content.result.jalali_month %}{{ content.result.jalali_month }}{% endif %}" value="month" type="text" id="data_content_label_background_calendar_month" class="data_content_label_background" name="m" maxlength="2"  form="form" pattern="^(0?[1-9]|1[012])$" min="1" max="12" placeholder="ماه">
+            <p class="datefield_space"> / </p>
+            <input value="{% if content.result.jalali_year %}{{ content.result.jalali_year }}{% endif %}" value="year" type="text" id="data_content_label_background_calendar_year" class="data_content_label_background" name="y" maxlength="4"  form="form" pattern="([1][1-9]\d{2})" min="1" max="1450" placeholder="سال">
+            <div id="data_content_label_underline_calendar_day" class="data_content_label_underline"></div>
+            <div id="data_content_label_underline_calendar_month" class="data_content_label_underline"></div>
+            <div id="data_content_label_underline_calendar_year" class="data_content_label_underline"></div>
+         
+        </div>
+        <div id="result_button_calendar" class="result_button" onclick="sumbit_button()">
+            <div id="result_button_img_calendar" class="result_button_img">
+                <p id="result_button_text_calendar" class="result_button_text">نمایش</p>
+            </div>
+        </div>
+        <div id="result_button_calendar_now" class="result_button" onclick="get_now()">
+            <div id="result_button_img_calendar" class="result_button_img">
+                <p id="result_button_text_calendar" class="result_button_text">امروز</p>
+            </div>
+        </div>
+
+        <div id="result_content">
+            <div id="result_title" >
+                <div id="data_content_label_underline_calendar_design" class="data_content_label_underline_green"></div>
+                <p id="date_title">{% if content.result.jalali_day and content.result.jalali_month and content.result.jalali_year and content.result.jalali_week_day_string %} {{ content.result.jalali_week_day_string }} {{ content.result.jalali_year }}/{{ content.result.jalali_month }}/{{ content.result.jalali_day }} {% else %}<br>{% endif %}</p>
+                <div id="data_content_label_underline_calendar_design" class="data_content_label_underline_green"></div>
+            </div>
+            <div id="part" class="result_content_fields ">
+                <p class="result_content_tag_label_title">تاریخ هجری</p>
+                <div class="supdivs">
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">روز</p>
+                    <p class="result_content_label_text" id="result_content_label_text_day">
+                    {% if content.result.hijri_day %}
+                        {{ content.result.hijri_day }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="supdivs">
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">ماه</p>
+                    <p class="result_content_label_text" id="result_content_label_text_month">
+                    {% if content.result.hijri_month %}
+                        {{ content.result.hijri_month }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div> 
+            <div class="supdivs supdivsBigger" >
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">سال</p>
+                    <p class="result_content_label_text" id="result_content_label_text_year">
+                    {% if content.result.hijri_year %}
+                        {{ content.result.hijri_year }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="supdivs supdivsBiggest" >
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">روز</p>
+                    <p class="result_content_label_text label_dateName" id="result_content_label_text_dayName">
+                    {% if content.result.week_day_string %}
+                        {{ content.result.week_day_string }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="supdivs supdivsBiggest" >
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">ماه</p>
+                    <p class="result_content_label_text label_dateName" id="result_content_label_text_monthName">
+                    {% if content.result.hijri_month_string %}
+                        {{ content.result.hijri_month_string }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="supdivs supdivsBiggest" >
+                <div class="result_content_label_background" id="result_content_label_background_content">
+                    <p class="result_content_label_title">فصل</p>
+                    <p class="result_content_label_text label_dateName" id="result_content_label_text_dayName">
+                    {% if content.result.season_string %}
+                        {{ content.result.season_string }}
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function sumbit_button() {
+            var form = document.getElementById('form_submit');
+            form.click();
+        }
+    </script>
+ 
+    <script>
+        function get_now(){
+            let today = new Date().toLocaleDateString('fa-IR');
+            document.getElementById('data_content_label_background_calendar_year').value= today.split('/')[0].replaceAll("۱", "1").replaceAll("۲", "2").replaceAll("۳", "3").replaceAll("۴", "4").replaceAll("۵", "5").replaceAll("۶", "6").replaceAll("۷", "7").replaceAll("۸", "8").replaceAll("۹", "9").replaceAll("۰", "0");
+            document.getElementById('data_content_label_background_calendar_month').value= today.split('/')[1].replaceAll("۱", "1").replaceAll("۲", "2").replaceAll("۳", "3").replaceAll("۴", "4").replaceAll("۵", "5").replaceAll("۶", "6").replaceAll("۷", "7").replaceAll("۸", "8").replaceAll("۹", "9").replaceAll("۰", "0");;
+            document.getElementById('data_content_label_background_calendar_day').value=today.split('/')[2].replaceAll("۱", "1").replaceAll("۲", "2").replaceAll("۳", "3").replaceAll("۴", "4").replaceAll("۵", "5").replaceAll("۶", "6").replaceAll("۷", "7").replaceAll("۸", "8").replaceAll("۹", "9").replaceAll("۰", "0");
+            var form = document.getElementById('form_submit');
+            form.click();}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>

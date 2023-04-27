@@ -1,0 +1,343 @@
+body {
+    height: 62vw !important;
+}
+
+.header_image {
+    margin-top: -4vw !important;
+}
+
+#body_items_calendar {
+    width: 66vw;
+    height: fit-content;
+    padding-top: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+#result_button_calendar {
+    top: 12.2vw;
+    left: 16vw;
+}
+
+.result_content_tag_label_title {
+    width: 7vw !important;
+    background: var(--firstLayout);
+    color: var(--secondaryColor) !important;
+    padding: .3vw 2.5vw;
+    margin-top: -1.4vw !important;
+    font-family: 'Vazir';
+    font-size: 1.4vw;
+    margin-right: 39%;
+    opacity: 1 !important;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.result_content_label_title {
+    text-align: center !important;
+    width: auto !important;
+    padding-top: .5vw;
+    font-weight: normal !important;
+    font-size: 1.2vw;
+}
+
+.supdivs {
+    width: 6vw !important;
+    height: 8vw;
+    margin-right: 1vw;
+    margin-top: 2vw;
+    display: inline-block !important;
+}
+
+.supdivsBigger {
+    width: 8.3vw !important;
+}
+
+.supdivsBiggest {
+    width: 9.3vw !important;
+}
+
+#select_text_calendar {
+    margin-left: 26vw !important;
+    margin-bottom: .8vw !important;
+}
+
+#select_text_calendar_pronoun {
+    margin-left: 26vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#select_text_character_calendar {
+    margin-left: 34.5vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#result_content {
+    margin-top: 2.2vw;
+    margin-bottom: 4vw;
+    padding: 1vw;
+}
+
+#result_content_label_background_content {
+    height: fit-content;
+}
+
+.result_content_label_text {
+    height: fit-content !important;
+    padding-bottom: 1vw;
+    text-align: center;
+    margin-top: -1.2vw;
+    font-size: 1.4vw !important;
+    color: var(--sec) !important;
+    user-select: text !important;
+}
+
+/* #result_content_label_text_dayName{
+    fontsi
+} */
+
+#result_content_label_background_calendar {
+    width: 59vw;
+    height: fit-content;
+}
+
+#data_content_calendar {
+    width: auto;
+    height: 4vw;
+    margin-top: 1.5vw !important;
+}
+
+#data_content_label_background_calendar_year {
+    width: 14vw !important;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_calendar_month {
+    width: 8vw !important;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_calendar_day {
+    width: 8vw !important;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_character {
+    text-align: right;
+    float: right;
+}
+
+.data_content_label_background {
+    margin: 0 .7vw;
+    text-align: center !important;
+}
+
+.datefield_space {
+    font-size: 2.8vw;
+    margin-top: .5vw;
+    width: fit-content;
+    float: right;
+    font-weight: bold;
+    opacity: var(--secondaryItem);
+    color: var(--secondaryColor);
+    text-align: center;
+}
+
+.result_content_label_background {
+    float: none !important;
+}
+
+#data_content_label_underline_calendar_day {
+    width: 5vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 55.8vw;
+}
+
+#data_content_label_underline_calendar_month {
+    width: 5vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 45.8vw;
+}
+
+#data_content_label_underline_calendar_year {
+    width: 10vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 30vw;
+}
+
+#result_title {
+    text-align: center;
+    margin-right: 1vw;
+}
+
+#data_content_label_background_type_calendar {
+    width: 13vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.7vw;
+    appearance: none;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -4vw;
+}
+
+#select_background_calendar {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.8vw;
+    /* position: absolute; */
+}
+
+#select_background_character {
+    width: 7vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.2vw;
+    /* position: absolute; */
+}
+
+#data_content_label_background_type_character {
+    width: 11vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.2vw;
+    appearance: none;
+    position: absolute;
+    margin-top: -4vw;
+    background-color: transparent;
+}
+
+#img_select_arrow {
+    width: 1.1vw;
+    position: absolute;
+    margin-left: 1.5vw;
+    height: 1vw;
+    margin-top: 1.6vw;
+}
+
+#data_content_label_type_calendar {
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#data_content_label_type_character {
+    margin-right: .6vw;
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#result_content {
+    padding-right: 3vw;
+    direction: rtl;
+}
+
+#result_content_field2 {
+    margin-top: 2vw;
+}
+
+#result_content_field4 {
+    margin-top: 2.5vw !important;
+}
+
+#result_content_field2, #result_content_field3, #result_content_field5, #result_content_field6 {
+    margin-right: 3.5vw;
+}
+
+#part {
+    width: 57vw;
+    height: fit-content;
+    margin: 0 2;
+    border-radius: .8vw;
+    border: solid var(--baseBorderColor);
+    border-width: .1vw;
+    margin: 1vw 1vw 1vw 1vw;
+    background-color: var(--firstLayout);
+    display: inline-block;
+}
+
+#result_button_calendar_now {
+    top: 12vw;
+    left: 5vw;
+}
+
+#result_button_calendar_now #result_button_img_calendar {
+    background-color: white;
+    border: .2vw var(--resultButtons) solid;
+    inline-size: 9.5vw;
+}
+
+#result_button_calendar_now #result_button_text_calendar {
+    color: var(--resultButtons);
+    font-size: 1.7vw;
+}
+
+#result_button_calendar_now #result_button_img_calendar:hover {
+    margin-top: -0.2vw !important;
+    box-shadow: 0 .4vw 0 #f1f1f1 !important;
+}
+
+#result_button_calendar_now #result_button_img_calendar:active {
+    margin-top: .4vw !important;
+    box-shadow: 0 0vw 0 #f1f1f1 !important;
+}
+
+#data_content_label_underline_calendar_design {
+    width: 18.6vw;
+    height: .15vw;
+    margin-top: 2.4vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    background-color: var(--resultButtons);
+    float: right;
+}
+
+.change_day {
+    font-size: 1.15vw;
+    color: var(--secondaryColor);
+    width: fit-content;
+    float: right;
+    font-style: normal;
+    font-family: 'vazir';
+    background-color: #f9f9f9;
+    padding: .6vw .9vw;
+    border-radius: 2vw;
+}
+
+#date_title {
+    font-size: 1.3vw;
+    color: var(--secondaryColor);
+    width: 14vw;
+    float: right;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'vazir';
+    margin-top: .8vw;
+    padding: .6vw .9vw;
+}

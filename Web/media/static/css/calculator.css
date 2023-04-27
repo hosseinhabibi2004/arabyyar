@@ -1,0 +1,85 @@
+body {
+    height: 62vw !important;
+}
+
+.header_image {
+    margin-top: -4vw !important;
+}
+
+#body_items_calculator {
+    width: 66vw;
+    height: fit-content;
+    padding-top: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+#result_button_calculator {
+    top: 18.75vw;
+    left: 4vw;
+}
+
+#result_content {
+    margin-top: 2.2vw;
+    margin-bottom: 4vw;
+}
+
+#result_content_label_background_number {
+    width: 47vw;
+    margin-left: 12vw;
+    height: 4vw;
+}
+
+#result_content_label_text_number_content_1 {
+    float: right;
+    margin-top: 1vw;
+    margin-right: 2vw;
+}
+
+#result_content_label_text_number_content_2 {
+    width: 55vw !important;
+    height: fit-content !important;
+    padding-top: 2vw;
+    margin-right: 1vw;
+    padding-bottom: 2vw;
+    margin-top: 3.5vw;
+    user-select: text !important;
+    padding-left: 2vw;
+}
+
+#result_content_label_background_calculate {
+    width: 59vw;
+    height: fit-content;
+}
+
+#result_content_label_text_number_result {
+    user-select: text !important;
+    font-weight: 800 !important;
+    float: left;
+    margin-top: 1vw;
+    margin-left: 1vw;
+}
+
+#data_content_calculator {
+    width: auto;
+    height: 4vw;
+}
+
+#data_content_label_background_calculator {
+    width: 59vw;
+    height: 4vw;
+}
+
+#data_content_label_underline_calculator {
+    width: 55vw;
+    height: .15vw;
+    margin-left: 6vw;
+}

@@ -1,0 +1,234 @@
+body {
+    height: 52vw !important;
+}
+
+.header_image {
+    margin-top: -4vw !important;
+}
+
+#body_items_chapter {
+    margin-left: 4vw;
+    width: 59vw;
+    height: fit-content;
+    padding-top: 4vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+#select_text_verb {
+    margin-right: 4vw !important;
+    margin-bottom: .8vw !important;
+}
+
+#select_text_chapter {
+    margin-left: 39vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#select_text_pronoun {
+    margin-left: 23.5vw !important;
+    margin-top: -4vw;
+    position: absolute;
+}
+
+#result_button_chapter {
+    top: 11.3vw;
+    left: 2.25vw;
+    width: 12vw !important;
+}
+
+.result_content_label_title {
+    text-align: center !important;
+    margin: .5vw !important;
+    width: auto !important;
+}
+
+#result_button_img_chapter {
+    width: 11vw;
+}
+
+.result_content_label_text {
+    width: auto !important;
+    height: fit-content!important;
+    padding-top: 1vw;
+    margin-right: 1vw;
+    padding-bottom: 1vw;
+    margin-top: -0.5vw;
+    user-select: text !important;
+    padding-left: 2vw;
+    text-align: center;
+}
+
+#result_content_label_background_chapter {
+    width: 59vw;
+    height: fit-content;
+}
+
+#data_content_chapter {
+    width: auto;
+    height: 4vw;
+}
+
+#data_content_label_background_chapter {
+    width: 11vw;
+    height: 4vw;
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_background_character {
+    text-align: right;
+    float: right;
+}
+
+#data_content_label_underline_chapter {
+    width: 8vw;
+    height: .15vw;
+    position: absolute;
+    margin-top: 3vw;
+    margin-left: 46.5vw;
+}
+
+#data_content_label_background_type_chapter {
+    width: 12vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    appearance: none;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -4vw;
+}
+
+#select_background_chapter {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    /* position: absolute; */
+}
+
+#select_background_character {
+    width: 9vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    /* position: absolute; */
+}
+
+#data_content_label_background_type_character {
+    width: 13vw;
+    height: 4vw;
+    direction: rtl;
+    margin-right: 1.5vw;
+    appearance: none;
+    position: absolute;
+    margin-top: -4vw;
+    background-color: transparent;
+}
+
+#img_select_arrow {
+    width: 1.1vw;
+    position: absolute;
+    margin-left: 1.5vw;
+    height: 1vw;
+    margin-top: 1.6vw;
+}
+
+#data_content_label_type_chapter {
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+#data_content_label_type_character {
+    margin-right: .6vw;
+    width: fit-content;
+    text-align: left;
+    display: inline-block;
+    height: fit-content;
+}
+
+.supdivs {
+    width: 23.25vw !important;
+    margin-right: 1vw;
+    display: inline-block !important;
+}
+
+.result_content_fields {
+    width: 13vw;
+    float: right;
+    margin-top: 1vw;
+}
+
+#result_content {
+    margin-top: 6.5vw;
+    margin: 6.5vw 2vw 2.75vw 2vw !important;
+    direction: rtl;
+}
+
+.tab {
+    width: 54vw;
+    margin-right: 1vw;
+    background-color: var(--background);
+}
+
+.tab button {
+    background-color: inherit;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content !important;
+    background: var(--baseBorderColor);
+    color: var(--secondaryColor);
+    padding: .5vw 2.225vw;
+    margin-top: -3vw !important;
+    border-radius: 1vw 1vw 0 0 !important;
+    font-family: 'Vazir';
+    font-size: 1.3vw;
+    text-align: right;
+    opacity: 0.75;
+}
+
+.tab button:hover {
+    opacity: 1;
+}
+
+.tab button.active {
+    background-color: var(--resultButtons);
+    color: var(--secondaryLayout);
+    opacity: 1;
+}
+
+.tabcontent {
+    padding: 1vw 1.375vw;
+    animation: fadeEffect 1s;
+    width: 50vw;
+    height: fit-content;
+    border-radius: 0 0 1vw 1vw;
+    border: 0.22vw solid var(--baseBorderColor);
+    margin: 0vw 1vw 1vw 0.8vw;
+    background-color: var(--firstLayout);
+    display: inline-block;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

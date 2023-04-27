@@ -1,0 +1,250 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/chapter.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | باب ها</title>
+</head>
+
+<body>
+    <form id="form" method="get">
+        <input type="submit" style="opacity: 0;display: none;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png") }}" class="header_image">
+        <p class="header_text">باب ها</p>
+    </div>
+
+    <div class="body_items" id="body_items_chapter">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png") }}">
+        </a>
+
+        <p id="select_text_verb" class="select_text">ریشه فعل</p>
+        <p id="select_text_chapter" class="select_text">باب</p>
+        <p id="select_text_pronoun" class="select_text">ضمیر</p>
+        <div class="data_content" id="data_content_chapter">
+            <input type="submit" style="opacity: 0;display: none;" form="form" id="form_submit">
+            <input pattern="^([پچجحخهعغآآفقثصضشسیبلاتنمکگوئدذرزطظيةؤإأءًٌٍَُِّضصثقفغعهخحجدطكمنتالبيسشئءؤرلىةوزظلآآلأإٍِأ]{3})$" value="{% if content.result.base %}{{ content.result.base }}{% endif %}" type="text" id="data_content_label_background_chapter" class="data_content_label_background" name="base" maxlength="3" form="form">
+            <div id="data_content_label_underline_chapter" class="data_content_label_underline"></div>
+            <div id="data_content_label_type_chapter">
+                <div class="data_content_label_background" id="select_background_chapter">
+                    <img src="{{ url_for("static", filename="img/select_icon.png") }}" id="img_select_arrow">
+                </div>
+                <select class="data_content_label_background" id="data_content_label_background_type_chapter" form="form" name="pronoun">
+                    <option value="0" {% if content.result.pronoun == 0 %}selected="selected"{% endif %}>هُوَ</option>
+                    <option value="1" {% if content.result.pronoun == 1 %}selected="selected"{% endif %}>هُما</option>
+                    <option value="2" {% if content.result.pronoun == 2 %}selected="selected"{% endif %}>هُم</option>
+                    <option value="3" {% if content.result.pronoun == 3 %}selected="selected"{% endif %}>هِيَ</option>
+                    <option value="4" {% if content.result.pronoun == 4 %}selected="selected"{% endif %}>هُما مُؤَنَث</option>
+                    <option value="5" {% if content.result.pronoun == 5 %}selected="selected"{% endif %}>هُنَّ</option>
+                    <option value="6" {% if content.result.pronoun == 6 %}selected="selected"{% endif %}>أَنْتَ</option>
+                    <option value="7" {% if content.result.pronoun == 7 %}selected="selected"{% endif %}>أَنْتُما</option>
+                    <option value="8" {% if content.result.pronoun == 8 %}selected="selected"{% endif %}>أَنْتُم</option>
+                    <option value="9" {% if content.result.pronoun == 9 %}selected="selected"{% endif %}>أَنْتِ</option>
+                    <option value="10" {% if content.result.pronoun == 10 %}selected="selected"{% endif %}>أَنْتُما مُؤَنَثْ</option>
+                    <option value="11" {% if content.result.pronoun == 11 %}selected="selected"{% endif %}>أَنْتُنَّ</option>
+                    <option value="12" {% if content.result.pronoun == 12 %}selected="selected"{% endif %}>أَنَا</option>
+                    <option value="13" {% if content.result.pronoun == 13 %}selected="selected"{% endif %}>نَحْنُ</option>
+                </select>
+            </div>
+            <div id="data_content_label_type_character">
+                <div class="data_content_label_background" id="select_background_character">
+                    <img src="{{ url_for("static", filename="img/select_icon.png") }}" id="img_select_arrow">
+                </div>
+                <select class="data_content_label_background" id="data_content_label_background_type_character" form="form" name="chapter">
+                    <option value="0" {% if content.result.chapter == 0 %} selected="selected" {% endif %}>إِفْعال</option>
+                    <option value="1" {% if content.result.chapter == 1 %} selected="selected" {% endif %}>تَفْعيل</option>
+                    <option value="2" {% if content.result.chapter == 2 %} selected="selected" {% endif %}>مُفاعَلَة</option>
+                    <option value="3" {% if content.result.chapter == 3 %} selected="selected" {% endif %}>إِفْتِعال</option>
+                    <option value="4" {% if content.result.chapter == 4 %} selected="selected" {% endif %}>إِنْفِعال</option>
+                    <option value="5" {% if content.result.chapter == 5 %} selected="selected" {% endif %}>تَفاعُل</option>
+                    <option value="6" {% if content.result.chapter == 6 %} selected="selected" {% endif %}>تَفَعُّل</option>
+                    <option value="7" {% if content.result.chapter == 7 %} selected="selected" {% endif %}>إِسْتِفْعال</option>
+                </select>
+            </div>
+        </div>
+        <div id="result_button_chapter" class="result_button" onclick="sumbit_button()">
+            <div id="result_button_img_chapter" class="result_button_img">
+                <p id="result_button_text_chapter" class="result_button_text">نمایش</p>
+            </div>
+        </div>
+
+        <div id="result_content">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'past')" id="past_button">ماضی</button>
+                <button class="tablinks" onclick="openCity(event, 'present')">مضارع مرفوع</button>
+                <button class="tablinks" onclick="openCity(event, 'participle_present')">مضارع منصوب</button>
+                <button class="tablinks" onclick="openCity(event, 'passive_present')">مضارع مجزوم</button>
+                <button class="tablinks" onclick="openCity(event, 'imperative')">امر مخاطب</button>
+            </div>
+            <div id="past" class="tabcontent">
+                <div class="supdivs">
+                    <p class="result_content_label_title">معلوم</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.known_past %}
+                                {{ content.result.known_past }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <div class="supdivs">
+                    <p class="result_content_label_title">مجهول</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.unknown_past %}
+                                {{ content.result.unknown_past }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="present" class="tabcontent">
+                <div class="supdivs">
+                    <p class="result_content_label_title">معلوم</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.known_present %}
+                                {{ content.result.known_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <div class="supdivs">
+                    <p class="result_content_label_title">مجهول</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.unknown_present %}
+                                {{ content.result.unknown_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="participle_present" class="tabcontent">
+                <div class="supdivs">
+                    <p class="result_content_label_title">معلوم</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.participle_present %}
+                                {{ content.result.participle_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <div class="supdivs">
+                    <p class="result_content_label_title">مجهول</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.unknown_participle_present %}
+                                {{ content.result.unknown_participle_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="passive_present" class="tabcontent">
+                <div class="supdivs">
+                    <p class="result_content_label_title">معلوم</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.passive_present %}
+                                {{ content.result.passive_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <div class="supdivs">
+                    <p class="result_content_label_title">مجهول</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.unknown_passive_present %}
+                                {{ content.result.unknown_passive_present }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="imperative" class="tabcontent">
+                <div class="supdivs">
+                    <p class="result_content_label_title">امر مخاطب</p>
+                    <div class="result_content_label_background" id="result_content_label_background_content">
+                        <p class="result_content_label_text" id="result_content_label_text_number_content">
+                            {% if content.result.imperative %}
+                                {{ content.result.imperative }}
+                            {% else %}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sumbit_button() {
+            var form = document.getElementById('form_submit');
+            form.click();
+        }
+        function chapterSelect() {
+            var typechapter = document.getElementById('data_content_label_background_type_chapter');
+            var event = new MouseEvent('mousedown');
+            typechapter.dispatchEvent(event);
+        }
+        function characterSelect() {
+            var typecharacter = document.getElementById('data_content_label_background_type_character');
+            typecharacter.click();
+        }
+    </script>
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+    
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+    
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+    
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script>
+        document.getElementById("past_button").click();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>

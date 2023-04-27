@@ -1,0 +1,274 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/index.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/about.css") }}>
+    <title>عربی یار | صفحه اصلی</title>
+</head>
+
+<body>
+    <div id="header" class="unselectable">
+        <img src="{{ url_for("static", filename="img/header.png" ) }}" class="header_image">
+        <p class="header_text unselectable">عربی یار</p>
+    </div>
+    <div style="text-align: center;">
+        <div id="main_items_left_arrow" class="main_items_arrow" onclick="main_items_left_arrow()">
+            <img src="{{ url_for("static", filename="img/left_arrow.png") }}" style="width: 100%;height: 100%;">
+        </div>
+
+        <div id="main_items_cards">
+            <div id="main_items_cards_right" class="main_items_cards_items">
+                <a id="main_items_cards_url_right" href="{{ url_for('chapters', base='خرج', chapter='7', pronoun='8') | safe }}">
+                    <img id="main_items_cards_img_right" class="animate main_items_cards_img" src="{{ url_for("static", filename="img/chapter_icon.png") }}">
+                </a>
+                <p id="main_items_cards_text_right" class="animate main_items_cards_text">باب ها</p>
+            </div>
+            <div id="main_items_cards_middle" class="animate main_items_cards_items">
+                <a id="main_items_cards_url_middle" href="{{ url_for('verbs', w='خرج', f='2', p='8') | safe }}">
+                    <img id="main_items_cards_img_middle" class="animate main_items_cards_img " src="{{ url_for("static", filename="img/verbs_icon.png") }}">
+                </a>
+                <p id="main_items_cards_text_middle" class="animate  main_items_cards_text">افعال</p>
+            </div>
+            <div id="main_items_cards_left" class="main_items_cards_items">
+                <a id="main_items_cards_url_left" href="{{ url_for('nta', number='8289520109') | safe }}">
+                    <img id="main_items_cards_img_left" class="animate main_items_cards_img" src="{{ url_for("static", filename="img/number_icon.png") }}">
+                </a>
+                <p id="main_items_cards_text_left" class="animate main_items_cards_text">اعداد</p>
+            </div>
+        </div>
+
+        <div id="main_items_right_arrow" class="main_items_arrow" onclick="main_items_right_arrow(this)">
+            <img src="{{ url_for("static", filename="img/right_arrow.png") }}" style="width: 100%;height: 100%;">
+        </div>
+
+        <img src="{{ url_for("static", filename="img/main_items_background.png") }}" id="main_items_background">
+    </div>
+    <div id="footer">
+        <a href="{{ url_for("help") }}" class="footer_items" id="footer_items_help">
+            <img class="footer_items_icon" src="{{ url_for("static", filename="img/icon_helper.png") }}">
+            <span id="footer_items_text_help" class="footer_items_text">راهنما</span>
+        </a>
+        <div class="footer_items open" id="footer_items_about">
+            <img class="footer_items_icon" src="{{ url_for("static", filename="img/icon_info.png") }}">
+            <span id="footer_items_text_about" class="footer_items_text">درباره ما</span>
+        </div>
+    </div>
+
+    <div class="modal-frame">
+        <div class="modal">
+            <div class="modal-inset">
+                <div class="button close"><i class="fa fa-close"></i></div>
+
+                <div class="modal-body">
+                    <h3>درباره ما</h3>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نرم‌افزار « عربی یار » در راستای ارتقاء کیفیت یادگیری و درک بهتر و ساده‌تر بخش قواعد کتب عربی متوسطه در سال ۱۳۹۹ توسط دانش‌آموزان پایه‌ی یازدهم دبیرستان علامه حلی ۱ همدان ساخته شده‌است.&nbsp;
+                        این نرم‌افزار با استفاده از زبان های برنامه‌نویسی پایتون ، جاوا‌اسکریپت و زبان های طراحی وب و همچنین با رعایت نکات رابط و تجربه کاربری (ui/ux) توسعه داده شده‌است.&nbsp;<br>
+                        نسخه {{content.version}} این نرم‌افزار شامل ۸ بخش افعال ، باب‌ها ، تشخیص باب ، رنگ‌ها ، تقویم ، ساعت ، ماشین‌حساب و اعداد است.&nbsp;<br>
+                        <br>
+                        توسعه‌دهندگان :<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ معین اکبری‌شهپر<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ حسین حبیبی<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;✓ علی محمدی<br>
+                    </p>
+                    <br><br>
+                    <p id="copy">&copy; ️ کلیه حقوق و ارزش های مادی و معنوی برای توسعه دهندگان محفوظ است.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+
+    {% block javascript %}
+        <script>
+            var text = ["افعال", "باب ها", "تشخیص باب", "رنگ ها", "تقویم", "ساعت", "ماشین حساب", "اعداد"];
+            var image = [
+                "{{ url_for("static", filename="img/verbs_icon.png") }}",
+                "{{ url_for("static", filename="img/chapter_icon.png") }}",
+                "{{ url_for("static", filename="img/reverse_chapter_icon.png") }}",
+                "{{ url_for("static", filename="img/color_icon.png") }}",
+                "{{ url_for("static", filename="img/calendar_icon.png") }}",
+                "{{ url_for("static", filename="img/clock_icon.png") }}",
+                "{{ url_for("static", filename="img/calculate_icon.png") }}",
+                "{{ url_for("static", filename="img/number_icon.png") }}"
+            ];
+            var link = [
+                "{{ url_for('verbs', w='خرج', f='2', p='8') | safe }}",
+                "{{ url_for('chapters', base='خرج', chapter='7', pronoun='8') | safe }}",
+                "{{ url_for('detect_chapters_view', word='استخرج') | safe }}",
+                "{{ url_for('color') | safe }}",
+                "{{ url_for('calendar', y='1400', m='01', d='01') | safe }}",
+                "{{ url_for('clock', mode='1', hrs='04', mns='41') | safe }}",
+                "{{ url_for('calculator', mathString='24.5*100') | safe }}",
+                "{{ url_for('nta', number='8289520109') | safe }}"
+            ];
+            var item = 0
+
+            function main_items_right_arrow(element) {
+                animation_cards_right_arrow();
+                item += 1;
+                if (item >= 8) {
+                    item = 0;
+                }
+
+                document.getElementById('main_items_cards_text_middle').innerHTML = text[item];
+                document.getElementById('main_items_cards_img_middle').src = image[item];
+                document.getElementById('main_items_cards_url_middle').href = link[item];
+
+                if (item == 7) {
+                    document.getElementById('main_items_cards_text_right').innerHTML = text[0];
+                    document.getElementById('main_items_cards_img_right').src = image[0];
+                    document.getElementById('main_items_cards_url_right').href = link[0];
+                } else {
+                    document.getElementById('main_items_cards_text_right').innerHTML = text[item + 1];
+                    document.getElementById('main_items_cards_img_right').src = image[item + 1];
+                    document.getElementById('main_items_cards_url_right').href = link[item + 1];
+                }
+
+                if (item == 0) {
+                    document.getElementById('main_items_cards_text_left').innerHTML = text[7];
+                    document.getElementById('main_items_cards_img_left').src = image[7];
+                    document.getElementById('main_items_cards_url_left').href = link[7];
+                } else {
+                    document.getElementById('main_items_cards_text_left').innerHTML = text[item - 1];
+                    document.getElementById('main_items_cards_img_left').src = image[item - 1];
+                    document.getElementById('main_items_cards_url_left').href = link[item - 1];
+                }
+            }
+            function main_items_left_arrow(element) {
+                animation_cards_left_arrow();
+                item -= 1;
+                if (item <= -1) {
+                    item = 7;
+                }
+
+                document.getElementById('main_items_cards_text_middle').innerHTML = text[item];
+                document.getElementById('main_items_cards_img_middle').src = image[item];
+                document.getElementById('main_items_cards_url_middle').href = link[item];
+
+                if (item == 7) {
+                    document.getElementById('main_items_cards_text_right').innerHTML = text[0];
+                    document.getElementById('main_items_cards_img_right').src = image[0];
+                    document.getElementById('main_items_cards_url_right').href = link[0];
+                } else {
+                    document.getElementById('main_items_cards_text_right').innerHTML = text[item + 1];
+                    document.getElementById('main_items_cards_img_right').src = image[item + 1];
+                    document.getElementById('main_items_cards_url_right').href = link[item + 1];
+                }
+
+                if (item == 0) {
+                    document.getElementById('main_items_cards_text_left').innerHTML = text[7];
+                    document.getElementById('main_items_cards_img_left').src = image[7];
+                    document.getElementById('main_items_cards_url_left').href = link[7];
+                } else {
+                    document.getElementById('main_items_cards_text_left').innerHTML = text[item - 1];
+                    document.getElementById('main_items_cards_img_left').src = image[item - 1];
+                    document.getElementById('main_items_cards_url_left').href = link[item - 1];
+                }
+            }
+
+            function animation_cards_right_arrow() {
+                middle_card_animation_to_right();
+                left_card_animation_to_left();
+                right_slide();
+            }
+            function animation_cards_left_arrow() {
+                middle_card_animation_to_left();
+                right_card_animation_to_right();
+                left_slide();
+            }
+            function middle_card_animation_to_right() {
+                var el1 = $('#main_items_cards_img_middle')
+                newone1 = el1.clone(true);
+                newone1.removeClass('leftToRight');
+                newone1.addClass('rightToLeft');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_middle')
+                newone1 = el1.clone(true);
+                newone1.removeClass('leftToRight');
+                newone1.addClass('rightToLeft');
+                el1.before(newone1);
+                el1.remove()
+            }
+            function middle_card_animation_to_left() {
+                var el1 = $('#main_items_cards_img_middle')
+                newone1 = el1.clone(true);
+                newone1.removeClass('rightToLeft');
+                newone1.addClass('leftToRight');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_middle')
+                newone1 = el1.clone(true);
+                newone1.removeClass('rightToLeft');
+                newone1.addClass('leftToRight');
+                el1.before(newone1);
+                el1.remove()
+            }
+            function left_card_animation_to_left() {
+                var el1 = $('#main_items_cards_img_left')
+                newone1 = el1.clone(true);
+                newone1.removeClass('slideToRight');
+                newone1.addClass('rightToLeftLittle');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_left')
+                newone1 = el1.clone(true);
+                newone1.removeClass('slideToRight');
+                newone1.addClass('rightToLeftLittle');
+                el1.before(newone1);
+                el1.remove()
+            }
+            function right_card_animation_to_right() {
+                var el1 = $('#main_items_cards_img_right')
+                newone1 = el1.clone(true);
+                newone1.removeClass('slideToLeft');
+                newone1.addClass('leftToRightLittle');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_right')
+                newone1 = el1.clone(true);
+                newone1.removeClass('slideToLeft');
+                newone1.addClass('leftToRightLittle');
+                el1.before(newone1);
+                el1.remove()
+            }
+            function right_slide() {
+                var el1 = $('#main_items_cards_img_right')
+                newone1 = el1.clone(true);
+                newone1.removeClass('leftToRightLittle');
+                newone1.addClass('slideToLeft');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_right')
+                newone1 = el1.clone(true);
+                newone1.removeClass('leftToRightLittle');
+                newone1.addClass('slideToLeft');
+                el1.before(newone1);
+                el1.remove()
+            }
+            function left_slide() {
+                var el1 = $('#main_items_cards_img_left')
+                newone1 = el1.clone(true);
+                newone1.removeClass('rightToLeftLittle');
+                newone1.addClass('slideToRight');
+                el1.before(newone1);
+                el1.remove()
+                var el1 = $('#main_items_cards_text_left')
+                newone1 = el1.clone(true);
+                newone1.removeClass('rightToLeftLittle');
+                newone1.addClass('slideToRight');
+                el1.before(newone1);
+                el1.remove()
+            }
+        </script>
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for("static", filename="js/about.js") }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+</body>
+</html>

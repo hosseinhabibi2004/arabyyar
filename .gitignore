@@ -1,0 +1,30 @@
+# Ignoring Python Cache Files
+__pycache__
+
+# Ignoring Virtual Environment Files
+venv/
+
+# Ignoring PyCharm Files
+.idea/
+
+# Ignoring VSCode Files
+.vscode/
+
+# Ignoring Other Files
+.DS_Store
+
+# Ignoring All JS Files
+Web/media/static/js/*
+
+# Except These Files
+!Web/media/static/js/about.js
+!Web/media/static/js/calculator.js
+!Web/media/static/js/color.js
+!Web/media/static/js/index.js
+!Web/media/static/js/number.js
+!Web/media/static/js/verbs.js
+
+# Temporary Files For Development
+notebooks/
+test.py
+output/

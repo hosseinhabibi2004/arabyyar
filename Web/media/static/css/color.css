@@ -1,0 +1,179 @@
+body {
+    height: 52vw !important;
+}
+
+.header_image {
+    margin-top: -2.75vw !important;
+}
+
+#body_items_number {
+    width: 38vw;
+    height: fit-content;
+    padding-top: 4vw;
+    left: 30%;
+    padding-top: 3vw;
+}
+
+.back_page_div {
+    cursor: pointer;
+    margin-top: 3vw;
+}
+
+#back_page_text {
+    padding-top: 2vw !important;
+    margin-right: .5vw;
+}
+
+.colors_div {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    margin-top: -1vw;
+    margin-left: 5.5vw;
+}
+
+.colors_items {
+    display: inline-block;
+    width: 3vw;
+    border-radius: 1vw;
+    height: 3vw;
+    margin-top: 1vw;
+    border-color: var(--baseBorderColor);
+    border-width: .3vw;
+    border-style: solid;
+    margin-right: 1.2vw;
+}
+
+.colors_items:hover {
+    display: inline-block;
+    width: 3vw;
+    border-radius: 1vw;
+    height: 3vw;
+    border-color: var(--resultButtons);
+    border-width: .3vw;
+    border-style: solid;
+    margin-right: 1.2vw;
+}
+
+#colors_red {
+    background-color: red;
+}
+
+#colors_blue {
+    background-color: blue;
+}
+
+#colors_cyan {
+    background-color: cyan;
+}
+
+#colors_golden {
+    background-color: goldenrod;
+}
+
+#colors_orange {
+    background-color: orange;
+}
+
+#colors_silver {
+    background-color: silver;
+}
+
+#colors_pink {
+    background-color: pink;
+}
+
+#colors_green {
+    background-color: lime;
+}
+
+#colors_yellow {
+    background-color: yellow;
+}
+
+#colors_purple {
+    background-color: purple;
+}
+
+#colors_white {
+    background-color: white;
+}
+
+#colors_black {
+    background-color: black;
+    margin-right: 0vw !important;
+}
+
+#colors_green {
+    margin-right: 0vw !important;
+}
+
+#result_button {
+    width: 10vw;
+    height: 4vw;
+    margin-left: 8vw;
+    margin-top: 2.5vw;
+}
+
+#result_button_img {
+    width: 10vw;
+    height: 4vw;
+}
+
+#result_content {
+    margin-top: 2vw;
+    width: 44vw;
+    height: 4vw;
+    padding-bottom: 7vw;
+}
+
+#result_content_icon_background {
+    background-color: white;
+    border-color: var(--baseBorderColor);
+    float: right;
+    margin-top: -.2vw;
+    border-radius: 2vw;
+    border-style: solid;
+    border-width: .4vw;
+    height: 3.8vw;
+    width: 3.8vw;
+    margin-right: 3.3vw;
+    text-align: center;
+}
+
+#result_content_icon {
+    margin-top: 1vw;
+    width: 2.2vw;
+    height: 1.8vw;
+}
+
+#result_content_label_background {
+    width: 38vw;
+    height: 4vw;
+}
+
+#result_content_label_background_color {
+    width: 23vw;
+    float: left;
+    margin-left: 2vw;
+    height: 4vw;
+}
+
+#result_content_label_text_color {
+    user-select: text !important;
+    font-weight: 800 !important;
+    float: right;
+    margin-top: 1vw;
+    margin-right: 1.5vw;
+}
+
+.colors_items_checked {
+    width: 2vw;
+    height: 2vw;
+    position: absolute;
+    margin-top: 1.5vw;
+}
+
+#result_button_text {
+    margin-left: 2.2vw !important;
+}

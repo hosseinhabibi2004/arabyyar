@@ -1,0 +1,93 @@
+@keyframes main_middle_item_right_to_left {
+    from {
+        opacity: 0.8;
+        transform: scale(.7) translateX(26vw);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes main_middle_item_left_to_right {
+    from {
+        opacity: 0.8;
+        transform: scale(.7) translateX(-26vw);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes main_right_left_item_right_to_left_bigger {
+    from {
+        opacity: .8;
+        transform: scale(1.6) translateX(12.8vw);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes main_right_left_item_left_to_right_bigger {
+    from {
+        opacity: .8;
+        transform: scale(1.6) translateX(-12.8vw);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes main_right_left_item_slide_to_left {
+    from {
+        opacity: 0;
+        transform: translateX(+5vw);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes main_right_left_item_slide_to_right {
+    from {
+        opacity: 0;
+        transform: translateX(-5vw);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate.rightToLeft {
+    animation-name: main_middle_item_right_to_left;
+    animation-duration: 1s;
+}
+
+.animate.leftToRight {
+    animation-name: main_middle_item_left_to_right;
+    animation-duration: 1s;
+}
+
+.animate.leftToRightLittle {
+    animation-name: main_right_left_item_left_to_right_bigger;
+    animation-duration: 1s;
+}
+
+.animate.rightToLeftLittle {
+    animation-name: main_right_left_item_right_to_left_bigger;
+    animation-duration: 1s;
+}
+
+.animate.slideToLeft {
+    animation-name: main_right_left_item_slide_to_left;
+    animation-duration: 1.5s;
+}
+
+.animate.slideToRight {
+    animation-name: main_right_left_item_slide_to_right;
+    animation-duration: 1.5s;
+}

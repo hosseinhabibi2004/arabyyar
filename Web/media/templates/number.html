@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for("static", filename="img/icon.png") }}">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/number.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/animation.css" ) }}/>
+    <link rel="stylesheet" href={{ url_for("static", filename="css/global.css" ) }}/>
+    <title>عربی یار | اعداد</title>
+</head>
+
+<body>
+    <form method="get" id="form">
+        <input type="submit" style="opacity: 0;" id="form_submit">
+    </form>
+
+    <div id="header">
+        <img src="{{ url_for("static", filename="img/header.png" ) }}" class="header_image">
+        <p class="header_text">اعداد</p>
+    </div>
+
+    <div class="body_items" id="body_items_number">
+        <a class="back_page_div" href="{{ url_for('index') }}">
+            <u id="back_page_text" class="back_page_item">برگشتن</u>
+            <img id="back_page_img" class="back_page_item" src="{{ url_for("static", filename="img/back_icon.png" ) }}">
+        </a>
+
+        <p id="select_text_number" class="select_text">عدد</p>
+        <div id="data_content_number" class="data_content">
+            <input value="{% if content.result.number %}{{ content.result.number }}{% endif %}" class="data_content_label_background" name="number" form="form" min="1" max="9999999999" type="number" pattern="[0-9]" dir="ltr" id="data_content_label_background">
+            <div id="data_content_label_underline_number" class="data_content_label_underline"></div>
+        </div>
+        <div class="result_button" id="result_button_number" onclick="submit_button()">
+            <div id="result_button_img_number" class="result_button_img" >
+                <p id="result_button_text_number" class="result_button_text">نمایش</p>
+            </div>
+        </div>
+        <div id="result_content">
+            <div id="result_content_label_background_content" class="result_content_label_background">
+            <p class="result_content_label_text" id="result_content_label_content_text">
+                {% if content.result.number %}
+                    {{ content.result.arabic }}
+                {% else %}
+                    <br>
+                {% endif %}
+            </p>
+        </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for("static", filename="js/number.js") }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+    {% extends 'errors.html' %}
+</body>
+</html>
