@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
-  <img src="https://github.com/VoltaCore/ArabyYar/blob/master/Web/media/static/img/label.png" alt="ArabyYar"></a>
+  <img src="https://github.com/Hossein-Habibi-2004/arabyyar/raw/master/Web/media/static/img/label.png" alt="ArabyYar"></a>
 </p>
 
 ---
